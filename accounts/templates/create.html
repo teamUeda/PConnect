@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'create.css' %}">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form name="login_form" method="POST" action="">
+            {% csrf_token %}
+            <div class="login_form_top">
+                <h1>PCONNECT</h1>
+            </div>
+            <div class="login_form_btm">
+                <p><font size="4">アカウント作成</font></p>
+                <P>下記の欄を入力してアカウント作成をしてください</P>
+                <div class="form-group has-feedback">{{ form.user_id }}</div>
+                <div class="form-group has-feedback">{{ form.password1 }}</div>
+                <div class="form-group has-feedback">{{ form.password2 }}</div>
+                {% for error in form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    <p>{{ error }}</p>
+                </div>
+                {% endfor %}
+                <input type="submit" name="next" value="確認">
+                <div class="create-button">
+                    <a href="../">戻る</a>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

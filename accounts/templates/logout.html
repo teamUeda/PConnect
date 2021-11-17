@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'create.css' %}">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form name="login_form" method="POST" action="">
+            {% csrf_token %}
+            <div class="login_form_top">
+                <h1>PCONNECT</h1>
+            </div>
+            <div class="login_form_btm">
+                <p><font size="4">ログアウトしました</font></p>
+                <div class="create-button">
+                    <a href="../">ホームに戻る</a>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

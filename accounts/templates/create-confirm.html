@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'create-confirm.css' %}">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form name="login_form" action="" method="POST">
+            <div class="login_form_top">
+                <h1>PCONNECT</h1>
+                <p>以下の内容でよろしければ作成を押してください</p>
+            </div>
+            <div class="create_info">
+                <h2>お名前 {{form.cleaned_data.user_id}}</h2>
+                <h2>パスワード ********</h2>
+            </div>
+            {% csrf_token %}
+            {% for field in form %}
+            {{field.as_hidden}}
+            {% endfor %}
+            <div class="login_form_btm">
+                <input type="submit" name="next" value="修正">
+                <input type="submit" name="next" value="作成">
+            </div>
+        </form>
+    </body>
+</html>
